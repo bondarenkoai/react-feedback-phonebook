@@ -1,0 +1,54 @@
+.card {
+    width: 100%;
+    padding: 10px;
+    box-shadow: 15px 15px 30px #bebebe;
+    border-radius: 17px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item {
+    width: 100%;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 17px;
+    cursor: pointer;
+}
+
+.item:hover {
+    transform: scale(1.05);
+    transition: all 0.5s;
+}
+
+.avatar {
+    margin: 10px 30px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.name {
+    margin: 10px 0;
+    font-family: Montserrat, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.status {
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.statusOn {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    margin-right: 5px;
+}
