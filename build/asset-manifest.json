@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-feedback-phonebook/static/css/main.4367afa2.css",
+    "main.js": "/react-feedback-phonebook/static/js/main.316f010d.js",
+    "index.html": "/react-feedback-phonebook/index.html",
+    "main.4367afa2.css.map": "/react-feedback-phonebook/static/css/main.4367afa2.css.map",
+    "main.316f010d.js.map": "/react-feedback-phonebook/static/js/main.316f010d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4367afa2.css",
+    "static/js/main.316f010d.js"
+  ]
+}
