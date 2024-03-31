@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 export const PhonebookContainer = styled.div`
     width: 330px;
+    margin: 50px auto;
     padding: 30px;
     background: #dde1e7;
     border-radius: 10px;
@@ -10,13 +11,13 @@ export const PhonebookContainer = styled.div`
     flex-direction: column;
 `;
 
-export const Text = styled.h2`
+export const Text = styled.label`
     font-size: 33px;
     font-weight: 600;
     color: #595959;
 `;
 
-export const Name = styled.input`
+export const InputName = styled.input`
     margin: 20px auto;
     height: 50px;
     padding-left: 45px;
