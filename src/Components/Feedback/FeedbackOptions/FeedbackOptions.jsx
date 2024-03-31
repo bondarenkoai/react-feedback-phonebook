@@ -1,4 +1,10 @@
-import { ButtonContainer, Button, FeedbackList, FeedbackItem } from './FeedbackOptions.styled';
+import {
+    ButtonContainer,
+    Button,
+    FeedbackList,
+    FeedbackItem,
+    Total,
+} from './FeedbackOptions.styled';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
@@ -27,6 +33,19 @@ export class FeedbackOptions extends Component {
         }));
     };
 
+    countTotalFeedback = () => {
+        return this.state.good + this.state.bad + this.state.neutral;
+    };
+
+    countPositiveFeedbackPercentage = () => {
+        const total = this.countTotalFeedback();
+        const positive = this.state.good;
+        if (total === 0) {
+            return 0;
+        }
+        return Math.round((positive / total) * 100);
+    };
+
     render() {
         return (
             <div>
@@ -45,6 +64,9 @@ export class FeedbackOptions extends Component {
                     <FeedbackItem>Good: {this.state.good}</FeedbackItem>
                     <FeedbackItem>Neutral: {this.state.neutral}</FeedbackItem>
                     <FeedbackItem>Bad: {this.state.bad}</FeedbackItem>
+                    <br></br>
+                    <Total>Total: {this.countTotalFeedback()}</Total>
+                    <Total>Positive Feedback: {this.countPositiveFeedbackPercentage()}%</Total>
                 </FeedbackList>
             </div>
         );

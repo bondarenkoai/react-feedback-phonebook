@@ -6,24 +6,6 @@ export const ButtonContainer = styled.div`
     gap: 10px;
 `;
 
-// export const Button = styled.button`
-//     padding: 12px 24px;
-//     margin: 40px 10px;
-//     font-size: 14px;
-//     color: #717171;
-//     background-color: #313131;
-//     border: 1px solid #414141;
-//     border-radius: 25px;
-//     cursor: pointer;
-//     transition: background-color 0.3s, border-color 0.3s;
-
-//     &:hover {
-//         background-color: ${props => props.hoverColor};
-//         border-color: #fff;
-//         color: #fff;
-//     }
-// `;
-
 export const Button = styled.button`
     padding: 12px 24px;
     margin: 40px 10px;
@@ -51,4 +33,10 @@ export const FeedbackList = styled.ul`
 export const FeedbackItem = styled.li`
     margin-bottom: 10px;
     font-size: 18px;
+`;
+
+export const Total = styled.p`
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #b3b3b3;
 `;
