@@ -7,8 +7,9 @@ export const ButtonContainer = styled.div`
 `;
 
 export const Button = styled.button`
+    width: 100px;
     padding: 12px 24px;
-    margin: 40px 10px;
+    margin: 10px;
     font-size: 16px;
     color: white;
     background: linear-gradient(#212121, #212121) padding-box,
@@ -23,20 +24,4 @@ export const Button = styled.button`
             linear-gradient(145deg, transparent 35%, ${props => props.hoverColor}, #40c9ff)
                 border-box;
     }
-`;
-
-export const FeedbackList = styled.ul`
-    list-style-type: none;
-    padding: 0;
-`;
-
-export const FeedbackItem = styled.li`
-    margin-bottom: 10px;
-    font-size: 18px;
-`;
-
-export const Total = styled.p`
-    margin-bottom: 10px;
-    font-size: 20px;
-    color: #b3b3b3;
 `;
