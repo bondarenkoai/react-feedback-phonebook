@@ -17,6 +17,6 @@ export const FeedbackContainer = styled.div`
     border-radius: 16px;
     background-size: 200% 100%;
     animation: gradient 5s ease infinite;
-    margin-top: 50px;
+    margin: 50px auto;
     box-shadow: 15px 15px 30px #bebebe;
 `;
