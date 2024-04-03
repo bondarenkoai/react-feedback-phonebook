@@ -11,9 +11,21 @@ export const PhonebookContainer = styled.div`
     flex-direction: column;
 `;
 
-export const Text = styled.label`
+export const Label = styled.label`
     font-size: 33px;
     font-weight: 600;
+    color: #595959;
+`;
+
+export const Text = styled.h2`
+    font-size: 33px;
+    font-weight: 600;
+    color: #595959;
+`;
+
+export const List = styled.ul`
+    font-size: 18px;
+    font-weight: 400;
     color: #595959;
 `;
 
