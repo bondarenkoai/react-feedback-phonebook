@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import { PhonebookContainer, Text } from './Phonebook.styled';
 import { ContactForm } from './ContactForm/ContactForm';
@@ -28,6 +27,10 @@ export class Phonebook extends Component {
         );
     };
 
+    onDeleteContact = (contact) => { 
+        
+    };
+
     handleAddContact = newContact => {
         const existingContact = this.state.contacts.find(
             contact => contact.name === newContact.name
@@ -53,7 +56,7 @@ export class Phonebook extends Component {
                 <ContactForm setContact={this.handleAddContact} />
                 <Text>Contact:</Text>
                 <Filter value={filter} onChange={this.handleChangeFilter} />
-                <ContactList value={filteredContacts} />
+                <ContactList value={filteredContacts} onDeleteContact={this.onDeleteContact} />
             </PhonebookContainer>
         );
     }

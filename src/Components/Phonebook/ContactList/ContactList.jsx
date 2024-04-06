@@ -1,14 +1,19 @@
 import React from 'react';
 import { List } from '../Phonebook.styled';
-// import { Text } from './Filter.styled';
+import { ContactListContainer, Button } from './ContactList.styled';
 
-export const ContactList = ({ value }) => (
+export const ContactList = ({ value, onDeleteContact }) => (
     <List>
-        {value.map(contact => {
+        {value.map(({ id, name, number }) => {
             return (
-                <li key={contact.id}>
-                    {contact.name} : {contact.number}
-                </li>
+                <ContactListContainer>
+                    <li key={id}>
+                        {name} : {number}
+                    </li>
+                    <Button type="button" onClick={() => onDeleteContact(id)}>
+                        Delete
+                    </Button>
+                </ContactListContainer>
             );
         })}
     </List>
