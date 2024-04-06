@@ -12,12 +12,15 @@ export const PhonebookContainer = styled.div`
 `;
 
 export const Label = styled.label`
-    font-size: 33px;
+    font-size: 24px;
     font-weight: 600;
     color: #595959;
 `;
 
 export const Text = styled.h2`
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
     font-size: 33px;
     font-weight: 600;
     color: #595959;
@@ -66,3 +69,12 @@ export const Button = styled.button`
         box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #ffffff73;
     }
 `;
+
+/* <div>
+  <h1>Phonebook</h1>
+  <ContactForm ... />
+
+  <h2>Contacts</h2>
+  <Filter ... />
+  <ContactList ... />
+</div> */
