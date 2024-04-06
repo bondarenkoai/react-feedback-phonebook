@@ -12,6 +12,7 @@ export class Phonebook extends Component {
             { id: nanoid(), name: 'Emma Williams', number: '459-12-56' },
             { id: nanoid(), name: 'Alex Johnson', number: '443-89-12' },
             { id: nanoid(), name: 'Ethan Anderson', number: '645-17-79' },
+            { id: nanoid(), name: 'ddd', number: 'ddd' },
         ],
         filter: '',
     };
@@ -28,6 +29,15 @@ export class Phonebook extends Component {
     };
 
     handleAddContact = newContact => {
+        const existingContact = this.state.contacts.find(
+            contact => contact.name === newContact.name
+        );
+
+        if (existingContact) {
+            alert(`${existingContact.name} contact already in contacts`);
+            return;
+        }
+
         this.setState(prevState => ({
             contacts: [...prevState.contacts, newContact],
         }));
