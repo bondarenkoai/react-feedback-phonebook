@@ -1,6 +1,5 @@
 import React from 'react';
-import { List } from '../Phonebook.styled';
-import { ContactListContainer, Button } from './ContactList.styled';
+import { ContactListContainer, List, Button } from './ContactList.styled';
 
 export const ContactList = ({ value, onDeleteContact }) => (
     <List>

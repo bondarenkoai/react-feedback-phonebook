@@ -7,6 +7,12 @@ export const ContactListContainer = styled.div`
     justify-content: space-between;
 `;
 
+export const List = styled.ul`
+    font-size: 18px;
+    font-weight: 400;
+    color: #595959;
+`;
+
 export const Button = styled.button`
     margin: 10px 0;
     height: 25px;

@@ -11,7 +11,7 @@ export class Phonebook extends Component {
             { id: nanoid(), name: 'Emma Williams', number: '459-12-56' },
             { id: nanoid(), name: 'Alex Johnson', number: '443-89-12' },
             { id: nanoid(), name: 'Ethan Anderson', number: '645-17-79' },
-            { id: nanoid(), name: 'ddd', number: 'ddd' },
+            { id: nanoid(), name: 'Mate Johnson', number: '555-123-456' },
         ],
         filter: '',
     };
@@ -27,11 +27,19 @@ export class Phonebook extends Component {
         );
     };
 
-    onDeleteContact = (contact) => { 
-        
+    // handleDeleteContact = delContactId => {
+    //     this.setState(prevState => ({
+    //         contacts: prevState.contacts.filter(contact => contact.id !== delContactId),
+    //     }));
+    // };
+    // * or:
+    handleDeleteContact = delContactId => {
+        this.setState(({ contacts }) => ({
+            contacts: contacts.filter(({ id }) => id !== delContactId),
+        }));
     };
 
-    handleAddContact = newContact => {
+    handleAddNewContact = newContact => {
         const existingContact = this.state.contacts.find(
             contact => contact.name === newContact.name
         );
@@ -53,10 +61,10 @@ export class Phonebook extends Component {
         return (
             <PhonebookContainer>
                 <Text>Phonebook</Text>
-                <ContactForm setContact={this.handleAddContact} />
+                <ContactForm setContact={this.handleAddNewContact} />
                 <Text>Contact:</Text>
                 <Filter value={filter} onChange={this.handleChangeFilter} />
-                <ContactList value={filteredContacts} onDeleteContact={this.onDeleteContact} />
+                <ContactList value={filteredContacts} onDeleteContact={this.handleDeleteContact} />
             </PhonebookContainer>
         );
     }

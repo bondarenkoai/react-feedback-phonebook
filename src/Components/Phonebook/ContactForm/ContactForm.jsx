@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Label, InputName } from '../Phonebook.styled';
 import { nanoid } from 'nanoid';
-// import { Text } from './Filter.styled';
+import { Button, Label, InputName } from './ContactForm.styled';
 
 export class ContactForm extends Component {
     nameInputId = nanoid();

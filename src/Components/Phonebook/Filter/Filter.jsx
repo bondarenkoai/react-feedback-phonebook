@@ -1,10 +1,9 @@
 import React from 'react';
-import { InputName } from '../Phonebook.styled';
-// import { Text } from './Filter.styled';
+import { InputName, Text } from './Filter.styled';
 
 export const Filter = ({ contacts, onChange }) => (
     <label>
-        <p style={{ fontSize: '18px', fontWeight: '500' }}>Find contacts by name</p>
+        <Text>Find contacts by name</Text>
         <InputName
             type="text"
             name="filter"
