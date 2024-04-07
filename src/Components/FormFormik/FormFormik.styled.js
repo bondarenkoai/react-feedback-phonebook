@@ -13,6 +13,7 @@ export const PhonebookContainer = styled.div`
     background: ${colorBg};
     border-radius: ${ruler * 1.5}px;
     box-shadow: -5px -5px 20px ${colorWhite}, 5px 5px 20px ${colorShadow};
+    font-family: Montserrat, sans-serif;
 `;
 
 export const Text = styled.h2`

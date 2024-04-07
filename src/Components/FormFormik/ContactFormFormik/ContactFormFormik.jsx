@@ -11,7 +11,7 @@ const initialValues = {
     number: '',
 };
 
-export const FormFormik = () => {
+export const FormFormik = ({ setContact }) => {
     const onSubmit = (values, { resetForm }) => {
         console.log(values);
         console.log(values.name);
@@ -21,22 +21,32 @@ export const FormFormik = () => {
             name: values.name,
             number: values.number,
         };
-
-        initialValues.contacts.push(newContact);
-        console.log(initialValues.contacts);
+        setContact(newContact);
         resetForm();
     };
 
     return (
         <Formik initialValues={initialValues} onSubmit={onSubmit}>
             <Form autoComplete="off">
-                <Label>
+                <Label htmlFor="name">
                     Name
-                    <InputName type="text" name="name" placeholder="Enter name..." required />
+                    <Field
+                        as={InputName}
+                        type="text"
+                        name="name"
+                        placeholder="Enter name..."
+                        required
+                    />
                 </Label>
-                <Label>
+                <Label htmlFor="number">
                     Number
-                    <InputName type="tel" name="number" placeholder="Enter number..." required />
+                    <Field
+                        as={InputName}
+                        type="tel"
+                        name="number"
+                        placeholder="Enter number..."
+                        required
+                    />
                 </Label>
                 <Button type="submit">Add contact</Button>
             </Form>

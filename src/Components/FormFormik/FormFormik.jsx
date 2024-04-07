@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 import { PhonebookContainer, Text } from './FormFormik.styled';
-import { FormFormik } from './ContactForm/ContactForm';
-import { ContactList } from './ContactList/ContactList';
-import { Filter } from './Filter/Filter';
+import { FormFormik } from './ContactFormFormik/ContactFormFormik';
+import { ContactList } from './ContactListFormik/ContactListFormik';
+import { Filter } from './FilterFormik/FilterFormik';
 
 export class PhonebookFormik extends Component {
     state = {

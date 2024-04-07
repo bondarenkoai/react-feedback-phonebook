@@ -1,11 +1,12 @@
 import React from 'react';
 import { ContactListContainer, List, ButtonList } from '../FormFormik.styled';
+import { nanoid } from 'nanoid';
 
 export const ContactList = ({ value, onDeleteContact }) => (
     <List>
         {value.map(({ id, name, number }) => {
             return (
-                <ContactListContainer>
+                <ContactListContainer key={nanoid()}>
                     <li key={id}>
                         {name} : {number}
                     </li>
