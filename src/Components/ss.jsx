@@ -1,64 +1,90 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { FeedbackContainer } from './Feedback.styled';
-import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
-import { Statistics } from './Statistics/Statistics';
-import { Section } from './Section/Section';
+import { nanoid } from 'nanoid';
+import { Button, PhonebookContainer, Label, InputName, Text, List } from './Phonebook.styled';
 
-export class Feedback extends Component {
+export class Phonebook extends Component {
+    nameInputId = nanoid();
+    numberInputId = nanoid();
+
     state = {
-        good: 0,
-        neutral: 0,
-        bad: 0,
+        contacts: [
+            { id: nanoid(), name: 'Emma Williams', number: 1 },
+            { id: nanoid(), name: 'Alex Johnson', number: 2 },
+            { id: nanoid(), name: 'Ethan Anderson', number: 3 },
+        ],
+        name: '',
+        number: '',
     };
 
-    handleFeedback = type => {
-        this.setState(prevState => ({
-            [type]: prevState[type] + 1,
-        }));
+    handleChange = e => {
+        this.setState({ name: e.target.value });
     };
 
-    countTotalFeedback = () => {
-        const { good, neutral, bad } = this.state;
-        return good + neutral + bad;
+    handleChangeNumber = e => {
+        this.setState({ number: e.target.value });
     };
 
-    countPositiveFeedbackPercentage = () => {
-        const total = this.countTotalFeedback();
-        const positive = this.state.good;
-        if (total === 0) {
-            return 0;
-        }
-        return Math.round((positive / total) * 100);
+    handleSubmit = evt => {
+        evt.preventDefault();
+        console.log(this.state);
+        console.log(this.state.name);
+        const newContact = {
+            id: nanoid(),
+            name: this.state.name,
+            number: this.state.number,
+        };
+        const updatedContacts = [...this.state.contacts, newContact];
+        this.setState({ contacts: updatedContacts, name: '', number: '' });
     };
 
     render() {
-        const { good, neutral, bad } = this.state;
-        const total = this.countTotalFeedback();
-        const positivePercentage = this.countPositiveFeedbackPercentage();
+        const { name } = this.state;
+        const { number } = this.state;
 
-        const options = { good, neutral, bad };
         return (
-            <FeedbackContainer>
-                <Section title="Please leave feedback">
-                    <FeedbackOptions options={options} onLeaveFeedback={this.handleFeedback} />
-                </Section>
-                <Section title="Statistics">
-                    <Statistics
-                        good={good}
-                        neutral={neutral}
-                        bad={bad}
-                        total={total}
-                        positivePercentage={positivePercentage}
-                    />
-                </Section>
-            </FeedbackContainer>
+            <PhonebookContainer>
+                <form onSubmit={this.handleSubmit}>
+                    <Label htmlFor={this.nameInputId}>
+                        Name
+                        <InputName
+                            type="text"
+                            name="name"
+                            placeholder="Enter name..."
+                            value={name}
+                            id={this.nameInputId}
+                            onChange={this.handleChange}
+                            required
+                        />
+                    </Label>
+                    <Label htmlFor={this.numberInputId}>
+                        Number
+                        <InputName
+                            type="tel"
+                            name="number"
+                            placeholder="Enter number..."
+                            value={number}
+                            id={this.numberInputId}
+                            onChange={this.handleChangeNumber}
+                            required
+                        />
+                    </Label>
+                    <Button type="submit">Add contact</Button>
+                </form>
+                <Text>
+                    Contact:
+                    <br />
+                    <List>
+                        {this.state.contacts.map(contact => {
+                            return (
+                                <li key={contact.id}>
+                                    {contact.name} : {contact.number}
+                                </li>
+                            );
+                        })}
+                    </List>
+                </Text>
+            </PhonebookContainer>
         );
     }
 }
-
-Feedback.propTypes = {
-    good: PropTypes.number.isRequired,
-    neutral: PropTypes.number.isRequired,
-    bad: PropTypes.number.isRequired,
-};
