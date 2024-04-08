@@ -1,10 +1,25 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
-import { Formik, Form, Field } from 'formik';
-import { Button, Label, InputName } from '../FormFormik.styled';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as yup from 'yup';
+import { Button, Label, InputName, TextP } from '../FormFormik.styled';
 
-// nameInputId = nanoid();
-// numberInputId = nanoid();
+const schema = yup.object().shape({
+    name: yup
+        .string()
+        .required('Name is required')
+        .matches(
+            /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
+            'Name may contain only letters, apostrophe, dash and spaces.'
+        ),
+    number: yup
+        .string()
+        .required('Number is required')
+        .matches(
+            /^\+?\d{1,4}[-.\s]?\(?\d{1,3}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/,
+            'Phone number must be digits and can contain spaces, dashes, parentheses and can start with "+".'
+        ),
+});
 
 const initialValues = {
     name: '',
@@ -26,7 +41,7 @@ export const FormFormik = ({ setContact }) => {
     };
 
     return (
-        <Formik initialValues={initialValues} onSubmit={onSubmit}>
+        <Formik initialValues={initialValues} validationSchema={schema} onSubmit={onSubmit}>
             <Form autoComplete="off">
                 <Label htmlFor="name">
                     Name
@@ -37,6 +52,9 @@ export const FormFormik = ({ setContact }) => {
                         placeholder="Enter name..."
                         required
                     />
+                    <ErrorMessage name="name">
+                        {errorMessage => <TextP error={!!errorMessage}>{errorMessage}</TextP>}
+                    </ErrorMessage>
                 </Label>
                 <Label htmlFor="number">
                     Number
@@ -47,6 +65,9 @@ export const FormFormik = ({ setContact }) => {
                         placeholder="Enter number..."
                         required
                     />
+                    <ErrorMessage name="number">
+                        {errorMessage => <TextP error={!!errorMessage}>{errorMessage}</TextP>}
+                    </ErrorMessage>
                 </Label>
                 <Button type="submit">Add contact</Button>
             </Form>

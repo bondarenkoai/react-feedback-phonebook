@@ -7,7 +7,7 @@ const colorBg = '#F7F8FA';
 const colorRed = '#FF4E61';
 
 export const PhonebookContainer = styled.div`
-    width: ${ruler * 22}px;
+    width: ${ruler * 24}px;
     margin: 30px auto;
     padding: ${ruler * 2}px;
     background: ${colorBg};
@@ -31,6 +31,8 @@ export const TextP = styled.p`
     font-weight: bold;
     color: ${colorShadow};
     text-shadow: 1px 1px 1px ${colorWhite};
+    color: ${props => (props.error ? 'red' : colorShadow)};
+    margin-top: ${props => (props.error ? '10px' : 0)};
 `;
 
 export const Label = styled.label`

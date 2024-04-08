@@ -8,10 +8,10 @@ import { Filter } from './FilterFormik/FilterFormik';
 export class PhonebookFormik extends Component {
     state = {
         contacts: [
-            { id: nanoid(), name: 'Emma Williams', number: '459-12-56' },
-            { id: nanoid(), name: 'Alex Johnson', number: '443-89-12' },
-            { id: nanoid(), name: 'Ethan Anderson', number: '645-17-79' },
-            { id: nanoid(), name: 'Mate Johnson', number: '555-123-456' },
+            { id: nanoid(), name: 'Emma Williams', number: '+459-12-56' },
+            { id: nanoid(), name: 'Alex Johnson', number: '+443-89-12' },
+            { id: nanoid(), name: 'Ethan Anderson', number: '+645-17-79' },
+            { id: nanoid(), name: 'Mate Johnson', number: '+555-123-456' },
         ],
         filter: '',
     };
