@@ -31,7 +31,8 @@ bad.
     The application should display the number of collected feedback for each category. The
     application should not store feedback statistics between different sessions (page refreshes).
 
-The state of the application must be in the following format, and no new properties should be added.
+    The state of the application must be in the following format, and no new properties should be
+    added.
 
 ```
 state = {
@@ -58,11 +59,11 @@ The interface may look like this:
     Refactor the application. The state of the application should remain in the root component
     `<App>`.
 
-Move the statistics display to a separate component
-`<Statistics good={} neutral={} bad={} total={} positivePercentage={}>`.  
-Move the button block to the `<FeedbackOptions options={} onLeaveFeedback={}>` component.  
-Create a `<Section title="">` component that renders a section with a title and children. Wrap each
-`<Statistics>` and `<FeedbackOptions>` in the created section component.
+    Move the statistics display to a separate component
+    `<Statistics good={} neutral={} bad={} total={} positivePercentage={}>`.  
+    Move the button block to the `<FeedbackOptions options={} onLeaveFeedback={}>` component.  
+    Create a `<Section title="">` component that renders a section with a title and children. Wrap
+    each `<Statistics>` and `<FeedbackOptions>` in the created section component.
 
 -   Step 4:  
     Extend the functionality of the application so that the statistics block is rendered only after
@@ -78,12 +79,12 @@ Write an application for storing contacts in a phonebook.
     contact names and displaying the list of contacts. The application should not store contacts
     between different sessions (page refreshes).
 
-Use this input markup for the contact name:
+    Use this input markup for the contact name:
 
 `<input type="text" name="name" required />`
 
-The state stored in the parent component `<App>` must be in the following format, and no new
-properties should be added.
+    The state stored in the parent component `<App>` must be in the following format, and no new
+    properties should be added.
 
 ```
 state = {
@@ -92,9 +93,9 @@ state = {
     }
 ```
 
-Each contact should be an object with properties `name` and `id`. Use any appropriate package, such
-as `nanoid`, to generate identifiers. After completing this step, the application should look
-something like this.
+    Each contact should be an object with properties `name` and `id`. Use any appropriate package, such
+    as `nanoid`, to generate identifiers. After completing this step, the application should look
+    something like this.
 
 <img src="./readme-img/image-2.png" alt="alt text" width="500" height="200">
 
@@ -110,11 +111,11 @@ state = {
     }
 ```
 
-Use this input markup for the contact number:
+    Use this input markup for the contact number:
 
 `<input type="tel" name="number" required />`
 
-After completing this step, the application should look something like this:
+    After completing this step, the application should look something like this:
 
 <img src="./readme-img/image-3.png" alt="alt text" width="500" height="200">  
   
@@ -134,9 +135,9 @@ state = {
 
 <img src="./readme-img/image-4.png" alt="alt text" width="500" height="200">
 
-When working on new functionality, it is convenient to hardcode some data in the state. This
-eliminates the need to manually enter data in the interface for testing the new functionality. For
-example, you can use the following initial state.
+    When working on new functionality, it is convenient to hardcode some data in the state. This
+    eliminates the need to manually enter data in the interface for testing the new functionality. For
+    example, you can use the following initial state.
 
 ```
 state = {
@@ -164,10 +165,10 @@ state = {
 }
 ```
 
-It is sufficient to extract four components: the contact addition form, the contact list, the
-contact list item, and the search filter.
+    It is sufficient to extract four components: the contact addition form, the contact list, the
+    contact list item, and the search filter.
 
-After refactoring, the root component of the application will look like this:
+    After refactoring, the root component of the application will look like this:
 
 ```
 <div>
@@ -212,10 +213,10 @@ After refactoring, the root component of the application will look like this:
         };
     ```
 
-Create the `FormFormik` component: The component receives a `setContact` prop, which is used to add
-a new contact. `Formik` component is used to manage the form state. The `onSubmit` function is
-called when the form is submitted, it adds a new contact and resets the form. The form has the
-attribute `autoComplete="off"` to disable browser autofill.
+    Create the `FormFormik` component: The component receives a `setContact` prop, which is used to
+    add a new contact. `Formik` component is used to manage the form state. The `onSubmit` function
+    is called when the form is submitted, it adds a new contact and resets the form. The form has
+    the attribute `autoComplete="off"` to disable browser autofill.
 
 -   Step 2:  
     Using `Field` for data input: The `Field` component is used to define input fields. The
