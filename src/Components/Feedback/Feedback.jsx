@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { FeedbackContainer } from './Feedback.styled';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Statistics } from './Statistics/Statistics';
@@ -37,8 +36,7 @@ export class Feedback extends Component {
         const { good, neutral, bad } = this.state;
         const total = this.countTotalFeedback();
         const positivePercentage = this.countPositiveFeedbackPercentage();
-
-        const options = { good, neutral, bad };
+        const options = Object.keys(this.state);
 
         return (
             <FeedbackContainer>
@@ -62,9 +60,3 @@ export class Feedback extends Component {
         );
     }
 }
-
-Feedback.propTypes = {
-    good: PropTypes.number.isRequired,
-    neutral: PropTypes.number.isRequired,
-    bad: PropTypes.number.isRequired,
-};
